@@ -1,0 +1,13 @@
+{
+  "name": "@daiops/harness-templates",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 'test/**/*.test.js'"
+  },
+  "dependencies": {
+    "yaml": "^2.6.0"
+  }
+}

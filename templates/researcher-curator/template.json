@@ -1,0 +1,15 @@
+{
+  "slug": "researcher-curator",
+  "schemaVersion": 1,
+  "role": "리서처·큐레이터",
+  "role_en": "Researcher / Curator",
+  "duties": [
+    "funding_research",
+    "news_curation",
+    "competitor_monitoring",
+    "newsletter_draft",
+    "document_work"
+  ],
+  "icon": "telescope",
+  "sortOrder": 8
+}
