@@ -34,16 +34,23 @@ git commit -s -m "메시지"
 ## 새 템플릿 추가 방법
 
 1. `templates/<slug>/` 생성:
-   - `template.json` — 매니페스트 (`slug`·`schemaVersion`·`role`·`role_en`·`duties`·`icon?`·`sortOrder?`)
-   - `persona.yaml` — 5-Layer 페르소나 + `duties:` 블록 (키는 `template.json#duties`와 1:1)
+   - `template.json` — 매니페스트 (`slug`·`schemaVersion`·`role`·`role_en`·`languages`·`duties`·`icon?`·`sortOrder?`)
+   - `persona.<lang>.yaml` — 언어별 5-Layer 페르소나 + `duties:` 블록 (키는 `template.json#duties`와 1:1). 최소 `persona.ko.yaml` 필수
    - `README.md` — 템플릿 설명
-2. `schemaVersion`은 daiops `EXPECTED_HARNESS_TEMPLATE_SCHEMA_VERSION` 이하 (현재 **1**)
+2. `schemaVersion`은 daiops `EXPECTED_HARNESS_TEMPLATE_SCHEMA_VERSION` 이하 (현재 **2**)
 3. 테스트 통과 확인:
    ```bash
    npm install && npm test
    ```
-   검증: `template.json` JSON parse·필드 정합 / `persona.yaml` YAML parse / `duties` 키 1:1 매칭
+   검증: `template.json` JSON parse·필드 정합 / `languages` ↔ `persona.<lang>.yaml` 파일 1:1 / 각 언어 YAML parse·`duties` 키 1:1 매칭
 4. `git commit -s` (DCO sign-off) 후 PR
+
+### 번역 추가 (기존 템플릿에 언어 더하기)
+
+- `persona.<lang>.yaml` 파일을 추가하고 `template.json#languages` 배열에 언어 코드를 더한다.
+- 번역본은 **동일한 `duties` 키와 동일한 `role`/`role_en`**을 유지해야 한다 (테스트가 1:1 검증).
+- 본문은 적응 번역한다 — "용어는 한국어 기본" 같은 *언어 자체에 대한 지침*은 대상 언어 맥락에 맞춘다.
+- daiops는 워크스페이스 `persona.language`로 파일을 선택하며, 해당 언어가 없으면 `ko`로 fallback.
 
 ## 검토 기준
 

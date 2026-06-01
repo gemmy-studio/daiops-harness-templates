@@ -1,8 +1,9 @@
 {
   "slug": "researcher-curator",
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "role": "리서처·큐레이터",
   "role_en": "Researcher / Curator",
+  "languages": ["ko", "en"],
   "duties": [
     "funding_research",
     "news_curation",

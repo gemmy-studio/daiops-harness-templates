@@ -18,5 +18,8 @@ daiops 신입 채용 Tier A 기본 템플릿. "리서처 / 큐레이터" 역할.
 
 ## 파일
 
-- `template.json` — 매니페스트 (slug, schemaVersion, role, duties 등)
-- `persona.yaml` — 5-Layer 페르소나(L0·L2·L3·L4·L5) + duties 본문
+- `template.json` — 매니페스트 (slug, schemaVersion, role, role_en, languages, duties 등)
+- `persona.ko.yaml` — 한국어 5-Layer 페르소나(L0·L2·L3·L4·L5) + duties 본문
+- `persona.en.yaml` — 영어판 (동일 구조·동일 duties 키, 본문만 번역)
+
+> 본문 언어는 워크스페이스 `persona.language`를 따라 선택됩니다. 번역 추가는 `persona.<lang>.yaml` 파일을 더하고 `template.json#languages`에 코드를 추가하면 됩니다.
